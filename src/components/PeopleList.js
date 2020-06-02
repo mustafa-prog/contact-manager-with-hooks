@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const PeopleList = (props) => {
   return (
@@ -10,4 +11,8 @@ const PeopleList = (props) => {
   );
 };
 
-export default PeopleList;
+const mapStateToProps = (state) => ({
+  data: state,
+});
+
+export default connect(mapStateToProps)(PeopleList);

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { addPerson } from '../store/actions';
 
 const AddPersonForm = (props) => {
   const [input, setInput] = useState('');
@@ -26,4 +28,10 @@ const AddPersonForm = (props) => {
   );
 };
 
-export default AddPersonForm;
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (data) => {
+    dispatch(addPerson(data));
+  },
+});
+
+export default connect(undefined, mapDispatchToProps)(AddPersonForm);
